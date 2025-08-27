@@ -487,7 +487,10 @@ document.addEventListener('DOMContentLoaded', () => {
   // Apply online
   if (applyBtn) {
     applyBtn.addEventListener('click', () => {
-      window.open('https://mail.google.com/mail/?view=cm&fs=1&to=t3cgardens@gmail.com&su=Job%20Application', '_blank');
+      window.open(
+        'https://wa.me/260966861576?text=Hello%20T3C,%20I%20would%20like%20to%20apply%20for%20a%20job.',
+        '_blank'
+      );
     });
   }
 });
