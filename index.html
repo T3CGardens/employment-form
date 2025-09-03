@@ -27,23 +27,28 @@
 </div>
 
 <div id="cvBuilder">
-  <!-- Profile picture -->
-  <div class="input-group">
-    <label>Profile Picture:</label>
-    <input type="file" id="profilePic" accept="image/*">
-    <img id="profilePreview" src="" alt="Profile Preview" style="max-width:110px; display:none;">
-  </div>
 
-  <!-- Personal Details -->
+  <!-- 1. Employment Data -->
   <div class="input-group">
-    <label>Full Name <span style="color:red">*</span></label><input type="text" id="fullName" required>
-    <label>Gender <span style="color:red">*</span></label>
+    <label for="position">Position Applied For <span style="color:red">*</span></label>
+    <input type="text" id="position" required>
+    <label for="altPosition">Alternate Position of Interest</label>
+    <input type="text" id="altPosition">
+    <label for="surname">Surname <span style="color:red">*</span></label>
+    <input type="text" id="surname" required>
+    <label for="middleName">Middle Name</label>
+    <input type="text" id="middleName">
+    <label for="forenames">Forenames <span style="color:red">*</span></label>
+    <input type="text" id="forenames" required>
+    <label for="gender">Gender <span style="color:red">*</span></label>
     <select id="gender" required>
       <option value="">Select</option>
       <option value="Male">Male</option>
       <option value="Female">Female</option>
     </select>
-    <label>Marital Status <span style="color:red">*</span></label>
+    <label for="dob">Date of Birth <span style="color:red">*</span></label>
+    <input type="date" id="dob" required>
+    <label for="maritalStatus">Marital Status <span style="color:red">*</span></label>
     <select id="maritalStatus" required>
       <option value="">Select</option>
       <option value="Single">Single</option>
@@ -51,82 +56,237 @@
       <option value="Divorced">Divorced</option>
       <option value="Widowed">Widowed</option>
     </select>
-    <label>No. of Children</label><input type="number" id="children" min="0">
-    <label>Nationality <span style="color:red">*</span></label><input type="text" id="nationality" required>
-    <label>NRC # <span style="color:red">*</span></label><input type="text" id="nrc" required>
-    <label>TPIN <span style="color:red">*</span></label><input type="text" id="tpin" required>
-    <label>NAPSA SSN <span style="color:red">*</span></label><input type="text" id="napsa" required>
-    <label>Postal Address <span style="color:red">*</span></label><input type="text" id="postalAddress" required>
-    <label>Residential Address (optional)</label><input type="text" id="residentialAddress">
-    <label>Town</label><input type="text" id="town">
-    <label>Plot No</label><input type="text" id="plotNo">
-    <label>Phone <span style="color:red">*</span></label><input type="text" id="phone" required>
-    <label>Alternate Phone</label><input type="text" id="altPhone">
-    <label>Email <span style="color:red">*</span></label><input type="email" id="email" required>
+    <label for="children">No. of Children</label>
+    <input type="number" id="children" min="0">
+    <label for="nationality">Nationality <span style="color:red">*</span></label>
+    <input type="text" id="nationality" required>
+    <label for="nrc">NRC Number <span style="color:red">*</span></label>
+    <input type="text" id="nrc" required>
+    <label for="tpin">TPIN</label>
+    <input type="text" id="tpin">
+    <label for="napsa">NAPSA SSN</label>
+    <input type="text" id="napsa">
+
+    <!-- Postal Address Section -->
+    <fieldset style="width:100%;border:none;padding:0;">
+      <legend style="font-weight:600;margin-bottom:8px;">Postal Address <span style="color:red">*</span></legend>
+      <label for="guardianCompany">Guardian/Company</label>
+      <input type="text" id="guardianCompany" required>
+      <label for="poBox">P.O. Box No.</label>
+      <input type="text" id="poBox" required>
+      <label for="town">Town</label>
+      <input type="text" id="town" required>
+    </fieldset>
+
+    <!-- Residential Address Section -->
+    <fieldset style="width:100%;border:none;padding:0;">
+      <legend style="font-weight:600;margin-bottom:8px;">Residential Address</legend>
+      <label for="plotNo">Plot No</label>
+      <input type="text" id="plotNo">
+      <label for="street">Street</label>
+      <input type="text" id="street">
+      <label for="township">Township</label>
+      <input type="text" id="township">
+    </fieldset>
+
+    <label for="email">Email <span style="color:red">*</span></label>
+    <input type="email" id="email" required>
+    <label for="phone">Tel:</label>
+    <input type="text" id="phone" required>
+    <label for="altPhone">Mobile:</label>
+    <input type="text" id="altPhone" required>
+
+    <!-- State of Health Section -->
+    <fieldset style="width:100%;border:none;padding:0;">
+      <legend style="font-weight:600;margin-bottom:8px;">State of Health</legend>
+      <label style="font-size:0.97em;color:#555;">Indicate illness or allergies you may be suffering from</label>
+      <label for="illnesses">Illnesses</label>
+      <input type="text" id="illnesses" placeholder="e.g. Asthma, Diabetes">
+      <label for="allergies">Allergies</label>
+      <input type="text" id="allergies" placeholder="e.g. Penicillin, Nuts">
+      <label for="disabilities">Disabilities</label>
+      <input type="text" id="disabilities">
+      <label for="otherData">Other Data</label>
+      <input type="text" id="otherData">
+    </fieldset>
+    <label for="profilePic">Profile Picture:</label>
+    <input type="file" id="profilePic" accept="image/*">
+    <img id="profilePreview" src="" alt="Profile Preview" style="max-width:110px; display:none;">
   </div>
 
-  <!-- Employment Information -->
+  <!-- 2. Education Background -->
   <div class="input-group">
-    <label>Position Applied For <span style="color:red">*</span></label><input type="text" id="position" required>
-    <label>Alternate Position of Interest</label><input type="text" id="altPosition">
-    <label>Expected Minimum Gross Pay</label><input type="text" id="expectedPay">
-    <label>Other Expectations</label><input type="text" id="otherExpectations">
-    <label>Ready to Start Date <span style="color:red">*</span></label><input type="date" id="startDate" required>
-    <label>Reason for Leaving Last Employment</label><input type="text" id="reasonLeaving">
-    <label>Current Occupation (if not working)</label><input type="text" id="currentOccupation">
-    <label>Valid Driver’s License?</label>
+    <button type="button" id="addEducationBtn">Add Education</button>
+    <div id="educationContainer"></div>
+    <template id="educationTemplate">
+      <div class="edu-block" data-section="education">
+        <label for="">Secondary School / College / University</label>
+        <input type="text" name="institution">
+        <label for="">From</label>
+        <input type="date" name="from">
+        <label for="">To</label>
+        <input type="date" name="to">
+        <label for="">Examinations Passed</label>
+        <input type="text" name="exams">
+        <button type="button" class="remove-btn">Remove</button>
+        <hr>
+      </div>
+    </template>
+  </div>
+
+  <!-- 3. Professional Qualifications -->
+  <div class="input-group">
+    <div style="font-weight:600;margin-bottom:8px;">
+      Details of special training, professional or other qualifications, certificates etc.
+    </div>
+    <button type="button" id="addQualificationBtn">Add Professional Qualification</button>
+    <div id="qualificationContainer"></div>
+    <template id="qualificationTemplate">
+      <div class="qual-block" data-section="qualification">
+        <label for="">Institution</label>
+        <input type="text" name="institution">
+        <label for="">From</label>
+        <input type="date" name="from">
+        <label for="">To</label>
+        <input type="date" name="to">
+        <label for="">Examinations Passed</label>
+        <input type="text" name="exams">
+        <button type="button" class="remove-btn">Remove</button>
+        <hr>
+      </div>
+    </template>
+  </div>
+
+  <!-- 4. Employment Background -->
+  <div class="input-group">
+    <label for="presentEmployer">Present Employer</label>
+    <input type="text" id="presentEmployer">
+    <label for="employerAddress">Employer Address</label>
+    <input type="text" id="employerAddress">
+    <label for="presentPosition">Position Held</label>
+    <input type="text" id="presentPosition">
+    <label for="presentFrom">From</label>
+    <input type="date" id="presentFrom">
+    <label for="presentTo">To</label>
+    <input type="date" id="presentTo">
+    <label for="presentGrossPay">Gross Pay</label>
+    <input type="text" id="presentGrossPay">
+    <label for="presentAllowances">Other Allowances</label>
+    <input type="text" id="presentAllowances">
+    <label for="presentBenefits">Other Benefits (Type / Value)</label>
+    <input type="text" id="presentBenefits">
+    <label for="presentReasonLeaving">Reasons for wishing to leave</label>
+    <input type="text" id="presentReasonLeaving">
+    <label for="noticePeriod">What period of notice are you supposed to give?</label>
+    <input type="text" id="noticePeriod">
+    <button type="button" id="addPrevEmployerBtn">Add Previous Employer</button>
+    <div id="prevEmployerContainer"></div>
+    <template id="prevEmployerTemplate">
+      <div class="prev-emp-block" data-section="prevEmployer">
+        <label for="">Employer</label>
+        <input type="text" name="employer">
+        <label for="">Position</label>
+        <input type="text" name="position">
+        <label for="">From</label>
+        <input type="date" name="from">
+        <label for="">To</label>
+        <input type="date" name="to">
+        <label for="">Gross Pay</label>
+        <input type="text" name="grossPay">
+        <button type="button" class="remove-btn">Remove</button>
+        <hr>
+      </div>
+    </template>
+    <label for="reasonLeaving">Reason for leaving last employment</label>
+    <input type="text" id="reasonLeaving">
+    <label for="currentOccupation">If not working indicate occupation</label>
+    <input type="text" id="currentOccupation">
+    <label for="driversLicense">Do you have a valid drivers’ license?</label>
     <select id="driversLicense">
       <option value="">Select</option>
       <option value="Yes">Yes</option>
       <option value="No">No</option>
     </select>
+    <label for="startDate">Assuming you are successful, when would you be ready to start work?</label>
+    <input type="date" id="startDate">
   </div>
 
-  <!-- Health Information -->
+  <!-- 5. Expectations -->
   <div class="input-group">
-    <label>State of Health</label><input type="text" id="health">
-    <label>Illnesses (comma separated)</label><input type="text" id="illnesses" placeholder="e.g. Asthma, Diabetes">
-    <label>Allergies (comma separated)</label><input type="text" id="allergies" placeholder="e.g. Penicillin, Nuts">
-    <label>Disabilities</label><input type="text" id="disabilities">
+    <label for="expectedPay">What is your expected minimum gross pay?</label>
+    <input type="text" id="expectedPay">
+    <label for="otherExpectations">What are your other expectations?</label>
+    <textarea id="otherExpectations" rows="3"></textarea>
   </div>
 
-  <!-- Education & Training -->
+  <!-- 6. Interests & Abilities -->
   <div class="input-group">
-    <button type="button" id="addEducationBtn" style="margin-bottom:12px;">Add Education/Training</button>
-    <div id="educationContainer"></div>
-  </div>
-
-  <!-- Certifications & Learning -->
-  <div class="input-group">
-    <label>Certifications/Trainings (comma separated)</label>
-    <input type="text" id="certifications" placeholder="e.g. ACCA, First Aid, Forklift Operator">
-  </div>
-
-  <!-- Work Experience -->
-  <div class="input-group">
-    <button type="button" id="addExperienceBtn" style="margin-bottom:12px;">Add Work Experience</button>
-    <div id="experienceContainer"></div>
-  </div>
-
-  <!-- Additional Info -->
-  <div class="input-group">
-    <label>Special Achievements</label><input type="text" id="achievements">
-    <label>Profile</label>
-    <input type="text" id="attributes" placeholder="e.g. Enthusiastic software engineering student with strong problem-solving skills and a passion for building scalable web applications">
-    <label>Hobbies & Past Activities (comma separated)</label>
-    <input type="text" id="hobbies" placeholder="e.g. Reading, Football, Cooking">
-  </div>
-
-  <!-- References -->
-  <div class="input-group">
-    <button type="button" id="addReferenceBtn" style="margin-bottom:12px;">Add Reference</button>
-    <div id="referenceContainer"></div>
-  </div>
-
-  <!-- Languages -->
-  <div class="input-group">
-    <button type="button" id="addLanguageBtn" style="margin-bottom:12px;">Add Language</button>
+    <button type="button" id="addHobbyBtn">Add Hobby / Interest</button>
+    <div id="hobbyContainer"></div>
+    <template id="hobbyTemplate">
+      <div class="hobby-block" data-section="hobby">
+        <label for="">Hobby / Interest</label>
+        <input type="text" name="hobby">
+        <button type="button" class="remove-btn">Remove</button>
+        <hr>
+      </div>
+    </template>
+    <button type="button" id="addLanguageBtn">Add Language</button>
     <div id="languageContainer"></div>
+    <template id="languageTemplate">
+      <div class="lang-block" data-section="language">
+        <label for="">Language</label>
+        <input type="text" name="language">
+        <label for="">Fluency</label>
+        <select name="fluency">
+          <option value="Fluent">Fluent</option>
+          <option value="Intermediate">Intermediate</option>
+          <option value="Basic">Basic</option>
+        </select>
+        <button type="button" class="remove-btn">Remove</button>
+        <hr>
+      </div>
+    </template>
+    <button type="button" id="addAchievementBtn">Add Special Achievement</button>
+    <div id="achievementContainer"></div>
+    <template id="achievementTemplate">
+      <div class="achievement-block" data-section="achievement">
+        <label for="">Special Achievement</label>
+        <input type="text" name="achievement">
+        <button type="button" class="remove-btn">Remove</button>
+        <hr>
+      </div>
+    </template>
+    <button type="button" id="addAttributeBtn">Add Special Attribute</button>
+    <div id="attributeContainer"></div>
+    <template id="attributeTemplate">
+      <div class="attribute-block" data-section="attribute">
+        <label for="">Special Attribute</label>
+        <input type="text" name="attribute">
+        <button type="button" class="remove-btn">Remove</button>
+        <hr>
+      </div>
+    </template>
+  </div>
+
+  <!-- 7. Referees -->
+  <div class="input-group">
+    <button type="button" id="addReferenceBtn">Add Referee</button>
+    <div id="referenceContainer"></div>
+    <template id="referenceTemplate">
+      <div class="ref-block" data-section="reference">
+        <label for="">Name</label>
+        <input type="text" name="name">
+        <label for="">Profession</label>
+        <input type="text" name="profession">
+        <label for="">Address</label>
+        <input type="text" name="address">
+        <label for="">Contact No.</label>
+        <input type="text" name="contact">
+        <button type="button" class="remove-btn">Remove</button>
+        <hr>
+      </div>
+    </template>
   </div>
 
   <!-- Declaration / Warning -->
@@ -137,8 +297,10 @@
       <br>
       I certify that the information provided is true and correct to the best of my knowledge.
     </p>
-    <label>Date <span style="color:red">*</span></label><input type="date" id="declarationDate" required>
-    <label>Signature (type your name) <span style="color:red">*</span></label><input type="text" id="signature" required>
+    <label for="declarationDate">Date <span style="color:red">*</span></label>
+    <input type="date" id="declarationDate" required>
+    <label for="signature">Signature (type your name) <span style="color:red">*</span></label>
+    <input type="text" id="signature" required>
   </div>
 
   <!-- Buttons -->
@@ -146,10 +308,18 @@
     <button id="generateBtn">Preview CV</button>
     <button id="downloadBtn" disabled>Download PDF</button>
     <button id="applyBtn">Apply Online</button>
-    <p style="color:#d32f2f; font-weight:600; margin-top:12px;">
-      Before applying online, please <strong>download your CV</strong> and attach it in WhatsApp after clicking "Apply Online".<br>
-      Your details will be sent to T3C Gardens via WhatsApp. Make sure all information is accurate.
-    </p>
+    <div style="color:#d32f2f; font-weight:600; margin-top:12px;">
+      <ol style="padding-left: 18px;">
+        <li>First, click <strong>Preview CV</strong> to check that all your details are correct.</li>
+        <li>Then, click <strong>Download PDF</strong>. Your CV file will be saved automatically in your Downloads folder and will be named <strong>CV.pdf</strong>.</li>
+        <li>After that, click <strong>Apply Online</strong>. This will open WhatsApp with T3C Gardens.</li>
+        <li>In WhatsApp, tap the <strong>paperclip (📎 Attach)</strong> icon, choose <strong>Document</strong>, go to your <strong>Downloads</strong> folder, and select <strong>CV.pdf</strong>.</li>
+        <li>Finally, send the message along with your attached CV.</li>
+      </ol>
+      <p style="margin-top:10px;">
+        <strong>Reminder:</strong> Please double-check all your details before sending. The attached CV will form part of your official employment record.
+      </p>
+    </div>
   </div>
 
   <!-- Preview -->
