@@ -163,6 +163,64 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  // --- Dynamic Section Logic ---
+  function addSectionRow(btnId, templateId, containerId, inputPrefix) {
+    const btn = document.getElementById(btnId);
+    const template = document.getElementById(templateId);
+    const container = document.getElementById(containerId);
+    let counter = 0;
+    if (btn && template && container) {
+      btn.addEventListener('click', () => {
+        counter++;
+        const clone = template.content.cloneNode(true);
+        // Assign unique IDs to inputs
+        clone.querySelectorAll('input, select, textarea').forEach((el) => {
+          if (el.name) {
+            el.id = `${inputPrefix}_${el.name}_${Date.now()}_${counter}`;
+          }
+        });
+        // Remove button
+        clone.querySelector('.remove-btn').addEventListener('click', function () {
+          this.closest('[data-section]').remove();
+          cvPreview.innerHTML = buildPreviewHtml();
+        });
+        container.appendChild(clone);
+        cvPreview.innerHTML = buildPreviewHtml();
+      });
+    }
+  }
+
+  // Education
+  addSectionRow('addEducationBtn', 'educationTemplate', 'educationContainer', 'edu');
+  // Professional Qualification
+  addSectionRow('addQualificationBtn', 'qualificationTemplate', 'qualificationContainer', 'qual');
+  // Previous Employer
+  addSectionRow('addPrevEmployerBtn', 'prevEmployerTemplate', 'prevEmployerContainer', 'prevemp');
+  // Hobbies
+  addSectionRow('addHobbyBtn', 'hobbyTemplate', 'hobbyContainer', 'hobby');
+  // Languages
+  addSectionRow('addLanguageBtn', 'languageTemplate', 'languageContainer', 'lang');
+  // Achievements
+  addSectionRow('addAchievementBtn', 'achievementTemplate', 'achievementContainer', 'achieve');
+  // Attributes
+  addSectionRow('addAttributeBtn', 'attributeTemplate', 'attributeContainer', 'attrib');
+  // Referees
+  addSectionRow('addReferenceBtn', 'referenceTemplate', 'referenceContainer', 'ref');
+
+  // --- Update preview on input change for dynamic sections ---
+  [
+    'educationContainer', 'qualificationContainer', 'prevEmployerContainer',
+    'hobbyContainer', 'languageContainer', 'achievementContainer',
+    'attributeContainer', 'referenceContainer'
+  ].forEach(id => {
+    const el = document.getElementById(id);
+    if (el) {
+      el.addEventListener('input', () => {
+        cvPreview.innerHTML = buildPreviewHtml();
+      });
+    }
+  });
+
   // Build preview HTML safely
   function buildPreviewHtml() {
     // Personal details
